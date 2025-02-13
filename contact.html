@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Adarsh R Nair</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: white;
+            margin-left: 20px;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header h1:hover {
+            color: cyan;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: cyan;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            text-align: center;
+            margin-top: 80px;
+            border: 1px solid cyan;
+            padding: 20px;
+            width: 30%;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .contact-container h2 {
+            font-size: 32px;
+            color: cyan;
+            margin-bottom: 20px;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background: cyan;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .resume-btn:hover {
+            background: #008b8b;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: cyan;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adarsh R Nair</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:adarshn682@gmail.com" style="color: cyan;">adarshn682@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/adarsh-r-nair-975569219/" target="_blank" style="color: cyan;">LinkedIn Profile</a></p>
+        <a href="https://drive.google.com/file/d/1PfFIo4RH9PbGN-k4v2H9_10KHNm8lkqG/view?usp=sharing" target="_blank" class="resume-btn">Download My Resume</a>
+    </div>
+
+    <footer>
+        <div class="footer-title">Catch me on</div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/__adarsh_r_/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/adarsh-r-nair-975569219/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

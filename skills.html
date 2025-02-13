@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Adarsh R Nair</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: white;
+            margin-left: 20px;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header h1:hover {
+            color: cyan;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: cyan;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .skills-container h2 {
+            font-size: 32px;
+            color: cyan;
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .skill {
+            position: relative;
+            padding: 15px 30px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, background 0.3s;
+            text-align: center;
+        }
+
+        .skill:hover {
+            background: cyan;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .skill-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 250px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+            color: white;
+            border: 1px solid cyan;
+        }
+
+        .skill:hover .skill-content {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Bubbles Background */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-up linear infinite;
+        }
+
+        @keyframes float-up {
+            to {
+                transform: translateY(-120vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adarsh R Nair</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Background Bubbles -->
+    <div class="bubbles">
+        <div class="bubble" style="width: 100px; height: 100px; left: 10%; animation-duration: 8s;"></div>
+        <div class="bubble" style="width: 150px; height: 150px; left: 30%; animation-duration: 12s;"></div>
+        <div class="bubble" style="width: 80px; height: 80px; left: 50%; animation-duration: 10s;"></div>
+        <div class="bubble" style="width: 120px; height: 120px; left: 70%; animation-duration: 14s;"></div>
+    </div>
+
+    <div class="skills-container">
+        <h2>My Skills</h2>
+        <div class="skills-list">
+            <div class="skill">PHP
+                <div class="skill-content">WordPress Website Development<br>Custom Themes & Plugins<br>API Integration</div>
+            </div>
+            <div class="skill">Web Designing
+                <div class="skill-content">HTML, CSS, JavaScript<br>Responsive UI/UX<br>Bootstrap, Tailwind</div>
+            </div>
+            <div class="skill">Server Handling
+                <div class="skill-content">cPanel & WHM<br>Cloud Hosting<br>Website Migration</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Social Links -->
+    <footer>
+        <div class="footer-title"><u>Catch me on</u></div><br>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/__adarsh_r_/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/adarsh-r-nair-975569219/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
