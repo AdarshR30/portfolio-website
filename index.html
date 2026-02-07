@@ -3,250 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adarsh R Nair - Portfolio</title>
+    <title>Adarsh R Nair - WordPress Developer & Project Coordinator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
     <style>
         /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
 
-        body {
-            background: #0a0a0a;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fdfdfd;
+    color: #333;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-        /* Header */
-        header {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-        }
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0;
+}
 
-        header h1 {
-            color: white;
-            margin-left: 20px;
-            font-size: 24px;
-            transition: color 0.3s ease-in-out;
-        }
+/* Header */
+header {
+    background: transparent;
+    padding: 1.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s, box-shadow 0.3s;
+}
 
-        header h1:hover {
-            color: cyan;
-        }
+header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin-right: 20px;
-        }
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+header .logo h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #2c3e50;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
+header .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
 
-        nav ul li a:hover {
-            color: cyan;
-        }
+header .nav-links li {
+    margin-left: 35px;
+}
 
-        /* Main Content */
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 80%;
-            max-width: 1200px;
-            height: 60vh;
-            z-index: 2;
-        }
+header .nav-links a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
 
-        .profile-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
+header .nav-links a:hover {
+    color: #c0a080;
+}
 
-        .profile-img img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid cyan;
-        }
+/* Hero Section */
+#hero {
+    background-color: #fdfdfd;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px; /* Offset for fixed header */
+}
 
-        .about-me {
-            flex: 2;
-            padding-left: 40px;
-        }
+#hero .hero-text {
+    max-width: 800px;
+}
 
-        .about-me h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: cyan;
-        }
+#hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5vw;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 700;
+}
 
-        .about-me p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
 
-        /* Background Bubbles */
-        .bubbles {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            z-index: 1;
-        }
+.btn {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.3s;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            background: rgba(0, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float-up linear infinite;
-        }
- /* Footer */
- footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            text-align: center;
-        }
+.btn:hover {
+    background: #c0a080;
+    transform: translateY(-3px);
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+/* Sections */
+section {
+    padding: 100px 0;
+    border-bottom: 1px solid #eee;
+}
 
-        .social-icons a {
-            text-decoration: none;
-        }
+section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #2c3e50;
+}
 
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-        }
+section p {
+    max-width: 900px;
+    margin: 0 auto 18px;
+}
 
-        .social-icons img:hover {
-            transform: scale(1.2);
-        }
+section ul {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding-left: 20px;
+}
 
-        /* Bubbles Background */
-        .bubbles {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+section li {
+    margin-bottom: 10px;
+}
 
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            background: rgba(0, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float-up linear infinite;
-        }
-        /* Generate multiple bubbles with different sizes and speeds */
-        @keyframes float-up {
-            to {
-                transform: translateY(-120vh);
-            }
-        }
+/* About Section */
+#about .about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
 
-        /* Generate multiple bubbles dynamically */
-        .bubble:nth-child(1) { width: 100px; height: 100px; left: 10%; animation-duration: 8s; animation-delay: 1s; }
-        .bubble:nth-child(2) { width: 150px; height: 150px; left: 20%; animation-duration: 12s; animation-delay: 2s; }
-        .bubble:nth-child(3) { width: 80px; height: 80px; left: 30%; animation-duration: 10s; animation-delay: 0s; }
-        .bubble:nth-child(4) { width: 120px; height: 120px; left: 40%; animation-duration: 14s; animation-delay: 3s; }
-        .bubble:nth-child(5) { width: 90px; height: 90px; left: 50%; animation-duration: 9s; animation-delay: 1s; }
-        .bubble:nth-child(6) { width: 140px; height: 140px; left: 60%; animation-duration: 11s; animation-delay: 2s; }
-        .bubble:nth-child(7) { width: 110px; height: 110px; left: 70%; animation-duration: 13s; animation-delay: 0s; }
-        .bubble:nth-child(8) { width: 180px; height: 180px; left: 80%; animation-duration: 15s; animation-delay: 4s; }
-        .bubble:nth-child(9) { width: 100px; height: 100px; left: 90%; animation-duration: 8s; animation-delay: 1s; }
-        .bubble:nth-child(10) { width: 130px; height: 130px; left: 95%; animation-duration: 10s; animation-delay: 3s; }
+#about .about-image {
+    flex: 0 0 300px;
+    text-align: center;
+}
+
+#about .about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+#about .about-text {
+    flex: 1;
+}
+
+/* Portfolio Section */
+#portfolio {
+    background-color: #fff;
+}
+
+#portfolio .portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+#portfolio .portfolio-item {
+    background: #fff;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+#portfolio .portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+#portfolio .portfolio-item .portfolio-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+#portfolio .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+#portfolio .portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+#portfolio .portfolio-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #f6f2ee, #fdfdfd);
+    border-bottom: 1px solid #eee;
+}
+
+#portfolio .portfolio-item:hover .portfolio-placeholder {
+    background: linear-gradient(135deg, #f1e6db, #fff);
+}
+
+#portfolio .portfolio-item-content {
+    padding: 25px;
+}
+
+#portfolio .portfolio-item h3 {
+    margin-top: 0;
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+}
+
+/* Experience */
+.experience-item {
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+.experience-item h3 {
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+}
+
+.experience-item p {
+    margin: 0 0 12px;
+    color: #666;
+    font-weight: 700;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+#contact .container {
+    max-width: 600px;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 0;
+}
+
+#portfolio .portfolio-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+#portfolio .project-cta {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 0.5px;
+}
+
+#portfolio .portfolio-item:hover .project-cta {
+    color: #c0a080;
+}
+
 
     </style>
-</head>
 <body>
-
-    <!-- Header -->
     <header>
-        <h1>Portfolio</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <div class="logo">
+                <h1>Adarsh R Nair</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="profile-img">
-            <img src="https://media.licdn.com/dms/image/v2/D5603AQFMk4uoItcuvQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719757716718?e=1753315200&v=beta&t=yPZI6rSJBLy0kXurzPTfwHZc_N2grGSaxB9ZadBQWsc" alt="Adarsh R Nair">
+    <section id="hero">
+        <div class="hero-text">
+            <h2>Delivery-Focused Web Developer & Project Coordinator</h2>
+            <p>Detail-oriented professional with 2+ years of experience in WordPress, WooCommerce, SaaS support, and end-to-end project delivery.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
         </div>
-        <div class="about-me">
-            <h2>Adarsh R Nair</h2>
-            <p>Hi, I'm Adarsh R Nair, a passionate Web Developer with expertise in building dynamic and user-friendly websites. I love solving complex problems and turning ideas into reality.</p>
-        </div>
-    </div>
+    </section>
 
-    <!-- Background Bubbles -->
-    <div class="bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </div>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src=https://media.licdn.com/dms/image/v2/D4D03AQFDqFzqr6Zwcw/profile-displayphoto-scale_200_200/B4DZw3VJSxJkAY-/0/1770454821515?e=1772064000&v=beta&t=iU3lpKcE_Psy1Orc_V8Zqc2KTxQg3ByXceZRs2Z2n6I alt="Adarsh R Nair">
+                </div>
+                <div class="about-text">
+                    <p>I specialize in WordPress and WooCommerce development, custom plugin creation, server management, and API-based integrations. I combine a strong technical foundation with structured project coordination to deliver reliable outcomes.</p>
+                    <p>I’ve led end-to-end website and SaaS project delivery, aligned cross-functional teams, and maintained clear client communication to keep scope, timelines, and quality on track.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <p><strong>Technical:</strong> WordPress, WooCommerce, HTML, CSS, JavaScript, PHP, MySQL, Server Management, API Integrations, Testing, Deployment.</p>
+            <p><strong>Project Management:</strong> Project Planning, Task Breakdown, Prioritization, Cross-Functional Coordination, Risk & Issue Management, Progress Tracking, Status Reporting, Timeline & Delivery Management, Agile/Scrum, Change & Scope Management.</p>
+            <p><strong>Soft Skills:</strong> Communication, Collaboration, Problem Solving, Analytical Thinking, Adaptability, Time Management, Teamwork, Leadership.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Getup Solutions — PHP Developer</h3>
+                <p>Oct 2024 – Present</p>
+                <ul>
+                    <li>Led end-to-end website and SaaS project delivery with a focus on quality and timelines.</li>
+                    <li>Built and customized WordPress & WooCommerce solutions, including custom plugins and performance optimization.</li>
+                    <li>Managed servers, deployments, and troubleshooting across hosting environments.</li>
+                    <li>Coordinated teams, gathered requirements, and maintained client communication.</li>
+                    <li>Administered SaaS platforms and CRMs (GoHighLevel, HubSpot, Zoho) with automations and API integrations.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Intellect Outsource — PHP Developer</h3>
+                <p>Oct 2023 – Oct 2024</p>
+                <ul>
+                    <li>Developed and managed WordPress and WooCommerce websites with custom plugin integrations.</li>
+                    <li>Performed testing and debugging to ensure product quality and performance.</li>
+                    <li>Translated business requirements into technical solutions with cross-functional teams.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Hamcore Pvt Limited — Web Developer</h3>
+                <p>May 2023 – Oct 2023</p>
+                <ul>
+                    <li>Built and maintained WordPress websites with a focus on performance and reliability.</li>
+                    <li>Handled testing and server management tasks for stable deployments.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education & Certifications</h2>
+            <ul>
+                <li>Master of Computer Applications (MCA), Nehru College of Engineering and Research Centre, Pampady (2021 – 2023)</li>
+                <li>Bachelor of Computer Applications (BCA), Sadanam Kumaran College, Pathiripala (2018 – 2021)</li>
+                <li>NPTEL: Cloud Computing</li>
+                <li>NPTEL: Introduction to Operating System (IIT Kharagpur)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Selected Works</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://luxfordhomes.com.au/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="Luxford Homes">Luxford Homes</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>Luxford Homes</h3>
+                            <p>Residential builder website with a refined, premium presentation.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://orangecare.getupai.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="Orange Care">Orange Care</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>Orange Care</h3>
+                            <p>Community and care platform with a clean, friendly UI.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://getupsolutions.com.au/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="Getup Solutions">Getup Solutions</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>Getup Solutions</h3>
+                            <p>Business solutions site focused on clarity and conversion.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://qwikrealestate.getupsolutions.net/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="Qwik Real Estate">Qwik Real Estate</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>Qwik Real Estate</h3>
+                            <p>Real estate landing experience with strong visual hierarchy.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://www.ayurplan.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="Ayurplan">Ayurplan</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>Ayurplan</h3>
+                            <p>Wellness brand site designed for trust and calm.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://snginfradevelopers.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="portfolio-image">
+                            <div class="portfolio-placeholder" aria-label="SNG Infra Developers">SNG Infra Developers</div>
+                        </div>
+                        <div class="portfolio-item-content">
+                            <h3>SNG Infra Developers</h3>
+                            <p>Infrastructure developer presence with a professional tone.</p>
+                            <span class="project-cta">Visit Site</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Open to growth-oriented roles where I can contribute to delivery excellence, technical execution, and client success.</p>
+            <p>Phone: 8943472169 | Email: adarshn682@gmail.com</p>
+            <a href="mailto:adarshn682@gmail.com" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
     <footer>
-        <div class="footer-title"><u>Catch me on</u></div><br>
-
-        <div class="social-icons">
-            <a href="https://www.instagram.com/__adarsh_r_/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="https://www.linkedin.com/in/adarsh-r-nair-975569219/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
-            </a>
-        </div>
+        <p>&copy; 2026 Adarsh R Nair. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
